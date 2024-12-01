@@ -1,0 +1,35 @@
+name: Build and Run
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Get repository
+      uses: actions/checkout@v2
+
+    - name: Set up JDK
+      uses: actions/setup-java@v2
+      with:
+        java-version: '22'
+        distribution: 'adoptopenjdk' #adoptium
+
+    - name: Build with Maven
+      run: mvn clean package
+
+    #- name: Run tests (optional)
+    #  run: mvn test
+
+    - name: Upload JAR file as artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: my-java-app
+        path: target/*.jar
