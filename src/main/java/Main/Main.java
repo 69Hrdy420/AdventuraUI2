@@ -17,7 +17,7 @@ public class Main extends Application {
     }
 
     public static void main(String[] args) {
-        //hra = new Hra(null);
+        //hra = new Hra(null) ;
         launch(args);
     }
 }
