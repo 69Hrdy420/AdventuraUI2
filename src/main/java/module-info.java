@@ -4,11 +4,21 @@ module cz.vse.adventuraui {
     //requires org.jetbrains.annotations;
     requires java.desktop;
 
+    opens cz.vse.uiApp to javafx.fxml;
+    exports cz.vse.uiApp;
 
-    opens uiApp to javafx.fxml;
-    exports uiApp;
-    exports Main;
-    opens Main to javafx.fxml;
-    exports Images;
-    opens Images to javafx.fxml;
+    opens cz.vse.Main to javafx.fxml;
+    exports cz.vse.Main;
+
+    exports cz.vse.Images;
+    opens cz.vse.Images to javafx.fxml;
+
+    exports cz.vse.logika;
+    opens cz.vse.logika to javafx.fxml;
+
+    exports cz.vse.Observers;
+    opens cz.vse.Observers to javafx.fxml;
+
+    exports cz.vse.uiText;
+    opens cz.vse.uiText to javafx.fxml;
 }
